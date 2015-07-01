@@ -1,0 +1,49 @@
+<meta charset="utf-8">
+    <div class="well bs-component" > 
+        <form class="form-horizontal" ng-submit="users.updUser(user)">
+            <fieldset>
+                <legend>Atualizar usuário</legend>
+                <div class="form-group">
+                    <label for="nome" class="col-lg-2 control-label">Nome</label>
+                    <div class="col-lg-10">
+                        <input type="text" ng-model="user.name" class="form-control" id="nome" placeholder="Nome">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dataNascimento" class="col-lg-2 control-label">Data de nascimento</label>
+                    <div class="col-lg-10">
+                        <input type="date" ng-model="user.birth" value="{{user.birth | date:'yyyy-MM-dd'}}" class="form-control" id="dataNascimento" placeholder="Data de Nascimento">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-lg-2 control-label">Email</label>
+                    <div class="col-lg-10">
+                        <input type="email" ng-model="user.email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="senha" class="col-lg-2 control-label">Nova Senha</label>
+                    <div class="col-lg-10">
+                        <input type="password" ng-model="user.password2" class="form-control" id="senha" placeholder="Senha">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="senha" class="col-lg-2 control-label">Senha</label>
+                    <div class="col-lg-10">
+                        <input type="password" ng-model="user.password" disabled="disabled" class="form-control" id="senha" placeholder="Senha">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="senha" class="col-lg-2 control-label">Confirmar senha</label>
+                    <div class="col-lg-10">
+                        <input type="password" ng-model="user.password3" class="form-control" id="senha" placeholder="Senha">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="submit" ng-if="user.password == user.password3" class="btn btn-primary btn-flat" ><i class="mdi-navigation-check"></i>Salvar</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>

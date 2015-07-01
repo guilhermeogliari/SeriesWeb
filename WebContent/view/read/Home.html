@@ -1,0 +1,22 @@
+<div style="margin-left: 5px;padding-left: 0px;padding-right: 0px;" class="panel panel-default col-lg-2 col-md-6" ng-repeat="home in homes.query | filter:search:strict">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+        	{{home.name}}
+        </h3>
+    </div>
+    <div class="panel-body">
+    	<img ng-src="images/upload/{{home.name}}.jpg" style="max-width: 100%; height: auto; width: auto\9;">
+    </div>
+    <div class="panel-footer">
+    	<button class="btn btn-xs" ng-click="homes.assisted(home)">
+			<i class="mdi-image-remove-red-eye"></i>
+		</button>
+		<button class="btn btn-xs">
+			<i class="mdi-device-access-alarm"></i>
+		</button>
+		<button class="btn btn-xs">
+			<i class="mdi-action-favorite-outline"></i>
+		</button>
+    </div>
+    
+</div>

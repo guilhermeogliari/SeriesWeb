@@ -1,0 +1,72 @@
+<meta charset="utf-8">
+<div class="col-md-12 table-responsive">
+	<div class="well bs-component">
+		<fieldset>
+			<legend>Consulta de series</legend>
+			<div class="table-responsive">
+				<table class="table table-striped table-hover table-responsive">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Nome original</th>
+							<th>Data de início</th>
+							<th>Sobre</th>
+							<th>Número de temporadas</th>
+							<th>Classificação indicativa</th>
+							<th>Generos</th>
+							<th>Nota</th>
+							<th colspan='4'>Administração</th>
+						</tr>
+					</thead>
+					<tbody ng-repeat="serie in series.query | filter:search:strict" >
+						<tr>
+							<td>{{serie.name}}</td>
+							<td>{{serie.originalName}}</td>
+							<td>{{serie.date | date: "dd/MM/yyyy"}}</td>
+							<td>{{serie.description}}</td>
+							<td>{{serie.numbersSeasons}}</td>
+							<td> <img width="20%" ng-src="images/{{serie.parentalGuidance}}.PNG"> </td>
+							<td><span ng-repeat="genre in serie.genres"> {{genre}},</span></td>
+							<td>{{serie.ratingGeneral}}</td>
+							<td>
+								<button class="btn btn-primary btn-flat" ng-click="update = !update">
+									<i class="mdi-editor-mode-edit"></i>Editar
+								</button>
+							</td>
+							<td>
+								<button class="btn btn-danger btn-flat" ng-click="series.delSerie(serie.id)">
+									<i class="mdi-action-delete"></i>Excluir
+								</button>
+							</td>
+							<td>
+								<button class="btn btn-flat" ng-click="actor = !actor">
+									<i class="mdi-image-timer-auto"></i>Atores
+								</button>
+							</td>
+							<td>
+								<button class="btn btn-flat" ng-click="episode = !episode">
+									<i class="mdi-av-movie"></i>Episódios
+								</button>
+							</td>
+						</tr>
+						<tr ng-show="update">
+							<td colspan='13'>
+								<serie-update></serie-update>
+							</td>
+						</tr>
+						<tr ng-show="actor">
+							<td colspan='13'>
+								<serie-add-actor></serie-add-actor>
+							</td>
+						</tr>
+						<tr ng-show="episode">
+							<td colspan='13'>
+								<serie-add-episode></serie-add-episode>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</fieldset>
+	</div>
+</div>

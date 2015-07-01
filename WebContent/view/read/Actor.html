@@ -1,0 +1,42 @@
+<meta charset="utf-8">
+<div class="col-md-12 table-responsive">
+	<div class="well bs-component">
+		<fieldset>
+			<legend>Consulta de usuarios</legend>
+			<div class="table-responsive">
+				<table class="table table-striped table-hover table-responsive">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Data de nascimento</th>
+							<th>Sobre</th>
+							<th colspan='2'>Administração</th>
+						</tr>
+					</thead>
+					<tbody ng-repeat="actor in actors.query | filter:search:strict">
+						<tr>
+							<td>{{actor.name}}</td>
+							<td>{{actor.birth | date: "dd/MM/yyyy"}}</td>
+							<td>{{actor.description}}</td>
+							<td>
+								<button class="btn btn-primary btn-flat" ng-click="update = !update">
+									<i class="mdi-editor-mode-edit"></i>Editar
+								</button>
+							</td>
+							<td>
+								<button class="btn btn-danger btn-flat" ng-click="actors.delActor(actor.id)">
+									<i class="mdi-action-delete"></i>Excluir
+								</button>
+							</td>
+						</tr>
+						<tr ng-show="update">
+							<td colspan='5'>
+								<actor-update></actor-update>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</fieldset>
+	</div>
+</div>

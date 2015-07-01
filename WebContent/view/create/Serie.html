@@ -1,0 +1,73 @@
+<meta charset="utf-8">
+<div class="col-md-12">
+    <div class="well bs-component"> 
+        <form class="form-horizontal" ng-submit="series.addSerie(serie)" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Nova série</legend>
+                <div class="form-group">
+                    <label for="nome" class="col-lg-2 control-label">Nome</label>
+                    <div class="col-lg-10">
+                        <input type="text" ng-model="serie.name" class="form-control" id="nome" placeholder="Nome">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="nomeOriginal" class="col-lg-2 control-label">Nome original</label>
+                    <div class="col-lg-10">
+                        <input type="text" ng-model="serie.originalName" class="form-control" id="nomeOriginal" placeholder="Nome original">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="image" class="col-lg-2 control-label">Imagem</label>
+                    <div class="col-lg-10">
+                        <input type="file" ngf-select ng-model="serie.image" class="form-control" id="image">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="numberSeason" class="col-lg-2 control-label">Número de temporadas</label>
+                    <div class="col-lg-10">
+                        <input type="number" min="1" step="1" ng-model="serie.numbersSeasons" class="form-control" id="numberSeason">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sobre" class="col-lg-2 control-label">Sobre</label>
+                    <div class="col-lg-10">
+                        <textarea ng-model="serie.description" class="form-control" id="sobre" placeholder="Sobre"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="date" class="col-lg-2 control-label">Data de início</label>
+                    <div class="col-lg-10">
+                        <input type="date" ng-model="serie.date" class="form-control" id="date">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="date" class="col-lg-2 control-label">Genero</label>
+                    <div class="col-lg-10">
+						<select multiple="" class="form-control" id="select" ng-model="serie.genres">
+		                    <option ng-repeat="genre in series.genres">{{genre.value}}</option>
+		                </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="date" class="col-lg-2 control-label">Classificação indicativa</label>
+                    <div class="col-lg-10">
+                        <select class="form-control" id="select" ng-model="serie.parentalGuidance">
+		                    <option value="Livre">Livre</option>
+		                    <option value="Maior10">Maior de 10 anos</option>
+		                    <option value="Maior12">Maior de 12 anos</option>
+		                    <option value="Maior14">Maior de 14 anos</option>
+		                    <option value="Maior16">Maior de 16 anos</option>
+		                    <option value="Maior18">Maior de 18 anos</option>
+		                </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="submit" class="btn btn-primary btn-flat" ><i class="mdi-navigation-check"></i>Salvar</button>
+                        <button type="reset" class="btn btn-default btn-flat"><i class="mdi-navigation-close"></i> Cancelar</button>    
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
